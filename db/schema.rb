@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_19_023955) do
+ActiveRecord::Schema.define(version: 2021_03_19_134205) do
+
+  create_table "flags", force: :cascade do |t|
+    t.string "nationality"
+    t.boolean "approved", default: false
+    t.string "wikipedia_link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "foreign_languages", force: :cascade do |t|
     t.string "name"
