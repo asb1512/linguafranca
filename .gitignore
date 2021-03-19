@@ -39,4 +39,5 @@
 yarn-debug.log*
 .yarn-integrity
 
+#Ignore internal notes.
 notes.md
