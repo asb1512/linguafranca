@@ -10,63 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_19_134205) do
-
-  create_table "flags", force: :cascade do |t|
-    t.string "nationality"
-    t.boolean "approved", default: false
-    t.string "wikipedia_link"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "foreign_languages", force: :cascade do |t|
-    t.string "name"
-    t.string "wikipedia_link"
-    t.boolean "approved", default: false
-    t.boolean "pitched"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "foreign_languages_users", id: false, force: :cascade do |t|
-    t.integer "foreign_language_id", null: false
-    t.integer "user_id", null: false
-  end
-
-  create_table "invitations", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "friend_id"
-    t.boolean "confirmed", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "native_languages", force: :cascade do |t|
-    t.string "name"
-    t.string "wikipedia_link"
-    t.boolean "approved", default: false
-    t.boolean "pitched"
-    t.boolean "gendered"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "native_languages_users", id: false, force: :cascade do |t|
-    t.integer "native_language_id", null: false
-    t.integer "user_id", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "password_digest"
-    t.string "username"
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "age"
-    t.string "skype_username"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end
