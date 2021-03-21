@@ -9,6 +9,7 @@
 #    {email: "test@email.com", password: "test", username: "test_account", age: 25, skype_username: "test.1532.skype", first_name: "John", last_name: "Doe"}
 # ])
 
+#Users
 10.times do
    User.create(
       email: Faker::Internet.email,
@@ -21,9 +22,8 @@
    )
 end
 
-
-
-english = ForeignLanguage.create(
+#Languages
+english = Language.create(
    name: "english",
    wikipedia_link: "https://en.wikipedia.org/wiki/English_language",
    approved: true,
@@ -31,15 +31,7 @@ english = ForeignLanguage.create(
    gendered: false
 )
 
-english = NativeLanguage.create(
-   name: "english",
-   wikipedia_link: "https://en.wikipedia.org/wiki/English_language",
-   approved: true,
-   pitched: false,
-   gendered: false
-)
-
-french = ForeignLanguage.create(
+french = Language.create(
    name: "french",
    wikipedia_link: "https://en.wikipedia.org/wiki/French_language",
    approved: true,
@@ -47,15 +39,7 @@ french = ForeignLanguage.create(
    gendered: false
 )
 
-french = NativeLanguage.create(
-   name: "french",
-   wikipedia_link: "https://en.wikipedia.org/wiki/French_language",
-   approved: true,
-   pitched: false,
-   gendered: false
-)
-
-spanish = ForeignLanguage.create(
+spanish = Language.create(
    name: "spanish",
    wikipedia_link: "https://en.wikipedia.org/wiki/Spanish_language",
    approved: true,
@@ -63,15 +47,7 @@ spanish = ForeignLanguage.create(
    gendered: false
 )
 
-spanish = NativeLanguage.create(
-   name: "spanish",
-   wikipedia_link: "https://en.wikipedia.org/wiki/Spanish_language",
-   approved: true,
-   pitched: false,
-   gendered: false
-)
-
-german = ForeignLanguage.create(
+german = Language.create(
    name: "german",
    wikipedia_link: "https://en.wikipedia.org/wiki/German_language",
    approved: true,
@@ -79,17 +55,33 @@ german = ForeignLanguage.create(
    gendered: false
 )
 
-german = NativeLanguage.create(
-   name: "german",
-   wikipedia_link: "https://en.wikipedia.org/wiki/German_language",
-   approved: true,
-   pitched: false,
-   gendered: false
-)
-
-
+#Flags
 united_kingdom = Flag.create(
-   nationality: "english"
+   nationality: "english",
    approved: true,
    wikipedia_link: "https://en.wikipedia.org/wiki/United_Kingdom"
+)
+
+united_states = Flag.create(
+   nationality: "american",
+   approved: true,
+   wikipedia_link: "https://en.wikipedia.org/wiki/United_States"
+)
+
+france = Flag.create(
+   nationality: "french",
+   approved: true,
+   wikipedia_link: "https://en.wikipedia.org/wiki/France"
+)
+
+spain = Flag.create(
+   nationality: "spanish",
+   approved: true,
+   wikipedia_link: "https://en.wikipedia.org/wiki/Spain"
+)
+
+germany = Flag.create(
+   nationality: "german",
+   approved: true,
+   wikipedia_link: "https://en.wikipedia.org/wiki/Germany"
 )
