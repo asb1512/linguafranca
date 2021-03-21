@@ -8,6 +8,9 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string                :last_name
       t.integer               :age
       t.string                :skype_username
+      t.boolean               :admin, default: false, null: false
+      t.string                :foreign_language_ids
+      t.string                :native_language_ids
 
       t.timestamps
     end
