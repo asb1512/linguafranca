@@ -33,20 +33,20 @@ ActiveRecord::Schema.define(version: 2021_03_21_020500) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "language_users", force: :cascade do |t|
+    t.integer "language_id"
+    t.integer "user_id"
+    t.boolean "foreign_language"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "languages", force: :cascade do |t|
     t.string "name"
     t.string "wikipedia_link"
     t.boolean "approved", default: false
     t.boolean "pitched"
     t.boolean "gendered"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "languages_users", force: :cascade do |t|
-    t.integer "language_id"
-    t.integer "user_id"
-    t.boolean "foreign_language"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
