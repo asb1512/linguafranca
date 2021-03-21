@@ -5,6 +5,4 @@ class User < ActiveRecord::Base
    has_many :pending_invitations, -> { where confirmed: false }, class_name: 'Invitation', foreign_key: "friend_id"
    has_many :languages
    has_many :languages, through: :languages_users
-   serialize :foreign_language_ids, Array
-   serailize :native_language_ids, Array
 end
