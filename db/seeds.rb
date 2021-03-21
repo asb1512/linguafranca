@@ -85,3 +85,28 @@ germany = Flag.create(
    approved: true,
    wikipedia_link: "https://en.wikipedia.org/wiki/Germany"
 )
+
+#User/Language Relations
+user_1_language_1 = LanguageUser.create(
+   language_id: 1,
+   user_id: 1,
+   foreign_language: false
+)
+
+user_2_language_2 = LanguageUser.create(
+   language_id: 2,
+   user_id: 2,
+   foreign_language: false
+)
+
+user_3_language_3 = LanguageUser.create(
+   language_id: 3,
+   user_id: 3,
+   foreign_language: false
+)
+
+user_4_language_4 = LanguageUser.create(
+   language_id: 4,
+   user_id: 4,
+   foreign_language: false
+)
