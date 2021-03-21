@@ -1,4 +1,4 @@
 class Flag < ActiveRecord::Base
-   has_many :foreign_languages
-   has_many :native_languages
+   has_many :languages
+   has_many :languages, through: :flags_languages
 end
