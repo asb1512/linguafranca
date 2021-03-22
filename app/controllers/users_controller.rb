@@ -39,7 +39,8 @@ class UsersController < ApplicationController
          :age,
          :skype_username,
          :native_language_id,
-         :foreign_language_id
+         :foreign_language_id,
+         :profile_pic
       )
    end
 end
