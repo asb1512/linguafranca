@@ -9,3 +9,10 @@
 <h3><%= @user.username %></h3>
 
 <p><%= @user.skype_username %></p>
+
+<p>Your native language(s):</p>
+<ul>
+<% @user.native_languages.each do |l| %>
+   <li><%= link_to l.name.capitalize, language_path(l) %></li>
+<% end %>
+</ul>
