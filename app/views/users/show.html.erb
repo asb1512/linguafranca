@@ -1,5 +1,11 @@
-<h1>Profile</h1>
+<h1>Your Profile</h1>
 
 <% if @user.profile_pic.attached? %>
-   <%= image_tag @user.profile_pic %>
+   <%= image_tag @user.profile_pic, style: "width: 200px; display: block;" %>
+<% else %>
+   <p>You don't have a profile pic!</p>
 <% end %>
+
+<h3><%= @user.username %></h3>
+
+<p><%= @user.skype_username %></p>
