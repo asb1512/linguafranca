@@ -6,12 +6,23 @@ class User < ActiveRecord::Base
    has_many :language_users
    has_many :languages, through: :language_users
 
-   def native_language
-      self.language_users.where({foreign_language: false}).each do |lang|
-         result = Language.find_by(id: lang.language_id)
-         result.each do |e|
-            result
-         end
+   def native_languages
+      results = []
+      language_users = self.language_users.where({foreign_language: false})
+      language_users.each do |e|
+         result = Language.find_by(id: e.language_id)
+         results << result
       end
+      results
+   end
+
+   def foreign_languages
+      results = []
+      language_users = self.language_users.where({foreign_language: true})
+      language_users.each do |e|
+         result = Language.find_by(id: e.language_id)
+         results << result
+      end
+      results
    end
 end
