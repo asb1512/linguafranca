@@ -1,3 +1,0 @@
-class LanguageUsersController < ApplicationController
-   
-end
