@@ -1,4 +1,4 @@
-<%= form_with model: @user do |f| %>
+<%= form_for(@user) do |f| %>
    <%= f.label :email %>
    <%= f.text_field :email %>
 
@@ -24,10 +24,18 @@
    <%= f.text_field :skype_username %>
 
    <p>Please select your native language.</p>
-   <%= f.collection_select :native_language_id, Language.all, :id, :name %>
+   <select name="native_language_id">
+      <% Language.all.each do |language| %>
+         <option value="<%= language.id %>"><%= language.name %></option>
+      <% end %>
+   </select>
 
    <p>Please select the language you're learning.</p>
-   <%= f.collection_select :foreign_language_id, Language.all, :id, :name %>
-
+   <select name="foreign_language_id">
+      <% Language.all.each do |language| %>
+         <option value="<%= language.id %>"><%= language.name %></option>
+      <% end %>
+   </select>
+   
    <%= f.submit "Submit" %>
 <% end %>
