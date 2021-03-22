@@ -16,3 +16,10 @@
    <li><%= link_to l.name.capitalize, language_path(l) %></li>
 <% end %>
 </ul>
+
+<p>Your foreign language(s):</p>
+<ul>
+<% @user.foreign_languages.each do |l| %>
+   <li><%= link_to l.name.capitalize, language_path(l) %></li>
+<% end %>
+</ul>
