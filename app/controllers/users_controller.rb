@@ -1,10 +1,25 @@
 class UsersController < ApplicationController
    def new
-
+      @user = User.new
    end
 
    def create
-
+      if (user = User.create(user_params))
+         session[:user_id] = user.id
+         native_language = LanguageUser.create(
+            language_id: params[:native_language_id],
+            user_id: user.id,
+            foreign_language: false
+         )
+         foreign_language = LanguageUser.create(
+            language_id: params[:foreign_language_id],
+            user_id: user.id,
+            foreign_language: true
+         )
+         redirect_to user_path(user)
+       else
+         render 'new'
+       end
    end
 
    private
@@ -18,7 +33,9 @@ class UsersController < ApplicationController
          :first_name,
          :last_name,
          :age,
-         :skype_username
+         :skype_username,
+         :native_language_id,
+         :foreign_language_id
       )
    end
 end
