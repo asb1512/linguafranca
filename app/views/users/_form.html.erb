@@ -36,6 +36,13 @@
          <option value="<%= language.id %>"><%= language.name %></option>
       <% end %>
    </select>
-   
+
+   <% if @user.profile_pic.attached? %>
+      <%= image_tag @user.profile_pic %>
+   <% end %>
+
+   <%= f.label :profile_pic %>
+   <%= f.file_field :profile_pic %>
+
    <%= f.submit "Submit" %>
 <% end %>
