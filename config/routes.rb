@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show, :edit, :update, :destroy]
   
   resources :languages
+
+  get '/signin', to: 'sessions#new'
+  post '/signin', to: 'sessions#create'
 end
