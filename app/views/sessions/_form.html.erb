@@ -1,0 +1,10 @@
+<%= form_for @user, :html => {:class => 'form-signin'}, url: '/sessions', method: 'POST' do |f| %>
+   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+   <%= f.label :email, for: 'inputEmail', class: 'sr-only' %>
+   <%= f.text_field :email, id: 'inputEmail', class: 'form-control', placeholder: 'Email address' %>
+
+   <%= f.label :password, for: 'inputPassword', class: 'sr-only' %>
+   <%= f.password_field :password, id: 'inputPassword', class: 'form-control', placeholder: 'Password' %>
+
+   <%= f.submit "Login", class: 'btn btn-lg btn-primary btn-block' %>
+<% end %>
