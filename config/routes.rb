@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :languages
 
   get '/signin', to: 'sessions#new'
-  post '/signin', to: 'sessions#create'
+  post '/sessions', to: 'sessions#create'
 end
