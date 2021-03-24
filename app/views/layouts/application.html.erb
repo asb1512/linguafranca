@@ -14,8 +14,7 @@
 
 
   <body>
-
-  
+  <% if request.path != "/signin" %>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
       <a class="navbar-brand" href="/">Lingua Franca</a>
 
@@ -29,7 +28,7 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Pricing</a>
@@ -57,7 +56,7 @@
       </div>
 
     </nav>
-
+<% end %>
 
     <%= yield %>
   </body>
