@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
    has_many :language_users
    has_many :languages, through: :language_users
 
+   validates :email, :password, :username, :first_name, :last_name, :age, :skype_username, presence: true
+
    def native_languages
       results = []
       language_users = self.language_users.where({foreign_language: false})
