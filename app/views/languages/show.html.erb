@@ -1,16 +1,18 @@
 <h1><%= @language.name.capitalize %></h1>
 
-<p>Is this language tonal?<br>
-   <strong><%= @language.pitched ? "Yes" : "No" %></strong>
-</p>
+<div class="container">
+   <p>Is this language tonal?<br>
+      <strong><%= @language.pitched ? "Yes" : "No" %></strong>
+   </p>
 
-<p>Does this language have grammatical gender?<br>
-   <strong><%= @language.gendered ? "Yes" : "No" %></strong>
-</p>
+   <p>Does this language have grammatical gender?<br>
+      <strong><%= @language.gendered ? "Yes" : "No" %></strong>
+   </p>
 
-<div>
-   <p>Countries where this language is spoken:<p>
-   
+   <div>
+      <p>Countries where this language is spoken:<p>
+
+   </div>
+
+   <%= link_to "Learn more about the #{@language.name.capitalize} language here.", @language.wikipedia_link %>
 </div>
-
-<%= link_to "Learn more about #{@language.name.capitalize} here.", @language.wikipedia_link %>
