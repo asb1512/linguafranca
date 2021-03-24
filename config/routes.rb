@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :languages
 
   get '/signin', to: 'sessions#new'
-  post '/sessions', to: 'sessions#create'
+  post '/signin', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 end
