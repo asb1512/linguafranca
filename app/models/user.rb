@@ -36,8 +36,9 @@ class User < ActiveRecord::Base
       self.foreign_languages.first.id
    end
 
-   def matching_users
-   #Find users 
-      LanguageUser.all.where(language_id: current_user.foreign_language_id).where().where(foreign_language: false)
+   def self.matching_users(current_user)
+      query = LanguageUser.all.where(language_id: current_user.foreign_language_id).where(foreign_language: false).map do |lang_user|
+         User.find_by(id: lang_user.user_id)
+      end
    end
 end
