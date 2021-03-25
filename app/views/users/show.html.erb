@@ -8,7 +8,7 @@
 
 <h3><%= @user.username %></h3>
 
-<p><%= @user.skype_username %></p>
+<p>Skype: <%= link_to @user.skype_username, "skype:#{@user.skype_username}?chat" %></p>
 
 <p>Your native language(s):</p>
 <ul>
