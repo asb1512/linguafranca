@@ -37,8 +37,13 @@ class User < ActiveRecord::Base
    end
 
    def self.matching_users(current_user)
-      query = LanguageUser.all.where(language_id: current_user.foreign_language_id).where(foreign_language: false).map do |lang_user|
-         User.find_by(id: lang_user.user_id)
+      results = []
+      query = LanguageUser.all.where(language_id: current_user.foreign_language_id).where(foreign_language: false).each do |lang_user|
+         u = User.find_by(id: lang_user.user_id)
+         if u
+            results << u
+         end
       end
+      results
    end
 end
