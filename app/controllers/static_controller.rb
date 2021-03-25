@@ -5,6 +5,7 @@ class StaticController < ApplicationController
    end
 
    def home
+      @matching_users = User.matching_users(current_user)
    end
 
    def about
