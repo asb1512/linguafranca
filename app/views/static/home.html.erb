@@ -1,32 +1,40 @@
-<h1>Users you might be interested in:</h1>
-
-
-<% @matching_users.each do |u| %>
-   <div class="card" style="width: 18rem;">
-
-      <% if u.profile_pic.attached? %>
-      <%= image_tag u.profile_pic, style: 'width: 200px; display: block;' %>
-      <% end %>
-
-      <div class="card-body">
-         <h5 class="card-title"><%= u.username %></h5>
-
-         <p class="card-text">is learning:</p>
-         <% u.foreign_languages.each do |f| %>
-         <ul>
-            <li class="card-text"><%= f.name.capitalize %></li>
-         </ul>
-         <% end %>
-
-         <p class="card-text">and knows:</p>
-         <% u.native_languages.each do |n| %>
-         <ul>
-            <li class="card-text"><%= n.name.capitalize %></li>
-         </ul>
-         <% end %>
-
-         <%= link_to "Show profile", user_path(u), class: 'btn btn-primary' %>
-      </div>
-
+<div class="container">
+   <div class="row">
+      <h1>Users you might be interested in:</h1>
    </div>
+</div>
+
+<div class="container">
+   <div class="row">
+<% @matching_users.each do |u| %>
+      <div class="col-sm">
+         <div class="card mt-2" style="width: 18rem;">
+
+            <% if u.profile_pic.attached? %>
+            <%= image_tag u.profile_pic, style: 'width: 200px; display: block;' %>
+            <% end %>
+
+            <div class="card-body">
+               <h5 class="card-title"><%= u.username %></h5>
+
+               <p class="card-text">is learning:</p>
+               <% u.foreign_languages.each do |f| %>
+               <ul>
+                  <li class="card-text"><%= f.name.capitalize %></li>
+               </ul>
+               <% end %>
+
+               <p class="card-text">and knows:</p>
+               <% u.native_languages.each do |n| %>
+               <ul>
+                  <li class="card-text"><%= n.name.capitalize %></li>
+               </ul>
+               <% end %>
+
+               <%= link_to "Show profile", user_path(u), class: 'btn btn-primary' %>
+            </div>
+         </div>
+      </div>
 <% end %>
+   </div>
+</div>
