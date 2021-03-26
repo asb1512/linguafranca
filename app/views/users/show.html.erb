@@ -1,25 +1,36 @@
-<h1>Your Profile</h1>
+<div class="container">
+   <div class="row">
+      <div class="col-sm mt-3">
+         <h1><%= current_user.id == @user.id ? "Your profile" : "Their profile" %></h1>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-sm mt-3">
+         <% if @user.profile_pic.attached? %>
+            <%= image_tag @user.profile_pic, style: "width: 200px; display: block;" %>
+         <% else %>
+            <p>You don't have a profile pic!</p>
+         <% end %>
+      </div>
 
-<% if @user.profile_pic.attached? %>
-   <%= image_tag @user.profile_pic, style: "width: 200px; display: block;" %>
-<% else %>
-   <p>You don't have a profile pic!</p>
-<% end %>
+      <div class="col-sm mt-3">
+         <h3><%= @user.username %></h3>
 
-<h3><%= @user.username %></h3>
+         <p>Skype: <%= link_to @user.skype_username, "skype:#{@user.skype_username}?chat" %></p>
 
-<p>Skype: <%= link_to @user.skype_username, "skype:#{@user.skype_username}?chat" %></p>
+         <p><%= current_user.id == @user.id ? "Your" : "Their" %> native language(s):</p>
+         <ul>
+         <% @user.native_languages.each do |l| %>
+            <li><%= link_to l.name.capitalize, language_path(l) %></li>
+         <% end %>
+         </ul>
 
-<p>Your native language(s):</p>
-<ul>
-<% @user.native_languages.each do |l| %>
-   <li><%= link_to l.name.capitalize, language_path(l) %></li>
-<% end %>
-</ul>
-
-<p>Your foreign language(s):</p>
-<ul>
-<% @user.foreign_languages.each do |l| %>
-   <li><%= link_to l.name.capitalize, language_path(l) %></li>
-<% end %>
-</ul>
+         <p><%= current_user.id == @user.id ? "Your" : "Their" %> foreign language(s):</p>
+         <ul>
+         <% @user.foreign_languages.each do |l| %>
+            <li><%= link_to l.name.capitalize, language_path(l) %></li>
+         <% end %>
+         </ul>
+      </div>
+   </div>
+</div>
