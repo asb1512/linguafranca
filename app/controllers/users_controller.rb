@@ -28,6 +28,10 @@ class UsersController < ApplicationController
       @user = User.find_by(id: params[:id])
    end
 
+   def home
+      @matching_users = User.matching_users(current_user)
+   end
+
    private
 
    def user_params
