@@ -3,24 +3,30 @@
 
 <% @matching_users.each do |u| %>
    <div class="card" style="width: 18rem;">
+
       <% if u.profile_pic.attached? %>
       <%= image_tag u.profile_pic, style: 'width: 200px; display: block;' %>
       <% end %>
+
       <div class="card-body">
          <h5 class="card-title"><%= u.username %></h5>
-         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+         <p class="card-text">is learning:</p>
+         <% u.foreign_languages.each do |f| %>
+         <ul>
+            <li class="card-text"><%= f.name.capitalize %></li>
+         </ul>
+         <% end %>
+
+         <p class="card-text">and knows:</p>
+         <% u.native_languages.each do |n| %>
+         <ul>
+            <li class="card-text"><%= n.name.capitalize %></li>
+         </ul>
+         <% end %>
+
          <%= link_to "Show profile", user_path(u), class: 'btn btn-primary' %>
       </div>
+
    </div>
-   <p><%= u %></p>
 <% end %>
-
-
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
