@@ -11,6 +11,8 @@
          <% else %>
             <p>You don't have a profile pic!</p>
          <% end %>
+
+         <%= link_to "Send Friend Request", invite_path(@user.id), method: :post, class: 'btn btn-primary' %>
       </div>
 
       <div class="col-sm mt-3">
