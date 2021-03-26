@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 
    def show
       @user = User.find_by(id: params[:id])
+      @pending_invitations = @user.pending_invitations
    end
 
    def home
