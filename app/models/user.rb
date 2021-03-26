@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
       Invitation.confirmed_record?(id, user.id)
    end
 
-   def send_invitation(user)
-      invitations.create(friend_id: user.id)
-   end
+   # def send_invitation(user)
+   #    invitations.create(friend_id: user.id)
+   # end
 end
