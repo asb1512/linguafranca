@@ -32,4 +32,8 @@ class InvitationsController < ApplicationController
          redirect_to user_path(current_user.id)
       end
    end
+
+   def destroy
+      
+   end
 end
