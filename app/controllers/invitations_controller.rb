@@ -23,6 +23,13 @@ class InvitationsController < ApplicationController
    end
 
    def update
-      
+      invitation = Invitation.find(params[:id])
+      if invitation
+         invitation.confirmed = true
+         invitation.save
+         redirect_to user_path(current_user.id)
+      else
+         redirect_to user_path(current_user.id)
+      end
    end
 end
