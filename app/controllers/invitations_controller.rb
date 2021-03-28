@@ -34,6 +34,11 @@ class InvitationsController < ApplicationController
    end
 
    def destroy
-      
+      invitation = Invitation.find(params[:id])
+      if invitation
+         invitation.destroy
+      else
+         redirect_to user_path(current_user.id)
+      end
    end
 end
