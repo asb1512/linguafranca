@@ -1,0 +1,20 @@
+<table class="table">
+   <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Native Language</th>
+    </tr>
+  </thead>
+   <tbody>
+      <% @pending_users.each do |u| %>
+      <tr>
+         <td><%= u.username %></td>
+         <td><%= u.native_languages.first.name.capitalize %></td>
+         <td>
+            <%= link_to "Accept", user_invitation(params[:user_id]f), method: :patch, class: 'btn btn-success' %>
+            <%= link_to "Deny", user_path(u), class: 'btn btn-danger' %>
+         </td>
+      </tr>
+      <% end %>
+   </tbody>
+</table>
