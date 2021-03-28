@@ -16,7 +16,7 @@
             <%= link_to "Send Friend Request", invite_path(@user.id), method: :post, class: 'btn btn-primary' %>
          <% elsif current_user && @pending_invitations.count != 0 %>
             <div class="alert alert-primary" role="alert">
-               <%= link_to "You have #{@pending_invitations.count} unread friend requests." %>
+               <%= link_to "You have #{@pending_invitations.count} unread friend requests.", user_invitations_path(current_user.id) %>
             </div>
          <% end %>
       </div>
