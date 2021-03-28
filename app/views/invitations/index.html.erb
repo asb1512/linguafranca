@@ -6,13 +6,15 @@
     </tr>
   </thead>
    <tbody>
-      <% @pending_users.each do |u| %>
+      <% @pending_invitations.each do |i| %>
       <tr>
-         <td><%= u.username %></td>
-         <td><%= u.native_languages.first.name.capitalize %></td>
+         <!--It isn't good to query the db directly from a view, currently looking for a better solution.-->
+         <% user = User.find_by(id: i.user_id) %>
+         <td><%= user.username %></td>
+         <td><%= user.native_languages.first.name.capitalize %></td>
          <td>
-            <%= link_to "Accept", user_invitation(params[:user_id]f), method: :patch, class: 'btn btn-success' %>
-            <%= link_to "Deny", user_path(u), class: 'btn btn-danger' %>
+            <%= link_to "Accept", user_invitation_path(current_user.id, i.id), action: :update, method: :patch, class: 'btn btn-success' %>
+            <%= link_to "Deny", class: 'btn btn-danger' %>
          </td>
       </tr>
       <% end %>
