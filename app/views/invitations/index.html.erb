@@ -14,7 +14,7 @@
          <td><%= user.native_languages.first.name.capitalize %></td>
          <td>
             <%= link_to "Accept", user_invitation_path(current_user.id, i.id), action: :update, method: :patch, class: 'btn btn-success' %>
-            <%= link_to "Deny", class: 'btn btn-danger' %>
+            <%= link_to "Deny", user_invitation_path(current_user.id, i.id), action: :delete, method: :delete, class: 'btn btn-danger' %>
          </td>
       </tr>
       <% end %>
