@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   #user routes
   get '/signup', to: 'users#new'
-  resources :users, only: [:create, :show, :edit, :update, :destroy]
+  resources :users, only: [:create, :show, :edit, :update, :destroy] do
+    resources :invitations
+  end
   get '/home', to: 'users#home'
   
   #language routes
