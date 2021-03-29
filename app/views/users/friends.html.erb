@@ -1,5 +1,14 @@
-<h1>Your Friends</h1>
-
-<% @friends.each do |f| %>
-   
-<% end %>
+<table class="table">
+   <thead>
+      <tr>
+         <th scope="col">Your Friends</th>
+      </tr>
+   </thead>
+   <tbody>
+   <% @friends.each do |f| %>
+      <tr>
+         <td><%= link_to f.username, user_path(f.id) %></td>
+      </tr>
+   <% end %>
+   </tbody>
+</table>
