@@ -12,7 +12,7 @@
             <p>You don't have a profile pic!</p>
          <% end %>
 
-         <% if current_user.id != @user.id %>
+         <% if current_user.id != @user.id && !Invitation.reacted?(current_user.id, @user.id) %>
             <%= link_to "Send Friend Request", invite_path(@user.id), method: :post, class: 'btn btn-primary' %>
          <% elsif current_user && @pending_invitations.count != 0 %>
             <div class="alert alert-primary" role="alert">
