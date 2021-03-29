@@ -41,7 +41,7 @@
         <ul class="navbar-nav ml-auto">
         <% if current_user %>
           <li class="nav-item">
-            <%= link_to 'Friends', user_friends_path(current_user.id) %>
+            <%= link_to 'Friends', user_friends_path(current_user.id), class: 'nav-link' %>
           </li>
           <li class="nav-item">
             <%= link_to image_tag(current_user.profile_pic, class: 'profile-pic'), user_path(current_user.id) %>
