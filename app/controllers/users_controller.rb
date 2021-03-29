@@ -33,6 +33,10 @@ class UsersController < ApplicationController
       @matching_users = User.matching_users(current_user)
    end
 
+   def friends
+      @friends = current_user.friends
+   end
+
    private
 
    def user_params
