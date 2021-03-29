@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   #user routes
   get '/signup', to: 'users#new'
+  get '/user/:id/friends', to: 'users#friends', as: 'user_friends'
   resources :users, only: [:create, :show, :edit, :update, :destroy] do
     resources :invitations
   end
