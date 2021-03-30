@@ -8,6 +8,7 @@
    <% @friends.each do |f| %>
       <tr>
          <td><%= link_to f.username, user_path(f.id) %></td>
+         <td><%= link_to "Unfriend", user_invitation_path(current_user.id, f.id), action: :delete, method: :delete, class: 'btn btn-danger' %></td>
       </tr>
    <% end %>
    </tbody>
