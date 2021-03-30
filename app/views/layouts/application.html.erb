@@ -22,6 +22,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
+      <!--Left side of navbar-->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
@@ -38,17 +39,20 @@
           </li>
         </ul>
 
+        <!--Right side of navbar-->
         <ul class="navbar-nav ml-auto">
         <% if current_user %>
-          <li class="nav-item">
-            <%= link_to 'Friends', user_friends_path(current_user.id), class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to image_tag(current_user.profile_pic, class: 'profile-pic'), user_path(current_user.id) %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Logout', logout_path, :method => :delete, class: 'nav-link' %>
-          </li>
+
+          <div class="dropdown dropleft">
+            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag(current_user.profile_pic, class: 'profile-pic') %>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <%= link_to 'Friends', user_friends_path(current_user.id), class: 'dropdown-item' %>
+              <%= link_to 'Logout', logout_path, :method => :delete, class: 'dropdown-item' %>
+            </div>
+          </div>
         <% else %>
           <li class="nav-item">
             <%= link_to 'Sign In', signin_path, class: 'nav-link' %>
@@ -58,13 +62,12 @@
           </li>
         <% end %>
         </ul>
-
       </div>
-
     </nav>
-<% end %>
+  <% end %>
 
     <%= yield %>
+
   </body>
 
 </html>
