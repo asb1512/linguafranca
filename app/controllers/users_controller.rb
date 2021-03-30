@@ -29,6 +29,20 @@ class UsersController < ApplicationController
       @pending_invitations = @user.pending_invitations
    end
 
+   def edit
+      if current_user.admin || current_user.id == params[:id].to_i
+         @user = User.find_by(id: params[:id])
+      else
+         render file: "public/422.html", status: 404
+      end
+   end
+
+   def update
+      user = User.find_by(id: params[:id])
+      user.update(user_params)
+      redirect_to user_path(user)
+   end
+
    def home
       @matching_users = User.matching_users(current_user)
    end
