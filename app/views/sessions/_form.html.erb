@@ -1,4 +1,6 @@
-<%= form_for @user, :html => {:class => 'form-signin'}, url: '/signin', method: 'POST' do |f| %>
+<%= form_for @user, :html => {:class => 'form-signin text-center'}, url: '/signin', method: 'POST' do |f| %>
+   <%= image_tag("LinguaFrancaLogoBlue.png", class: 'mb-4', width: '72px') %>
+
    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
    <%= f.label :email, for: 'inputEmail', class: 'sr-only' %>
    <%= f.text_field :email, id: 'inputEmail', class: 'form-control', placeholder: 'Email address' %>
@@ -18,5 +20,5 @@
 
    <%= f.submit "Login", class: 'btn btn-lg btn-primary btn-block' %>
 
-   <%= link_to "Back", root_path, class: 'align-center' %>
+   <%= link_to "Back", root_path, class: 'align-center mt-3' %>
 <% end %>
