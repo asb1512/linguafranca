@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   #flag routes
-  get '/flag/:id', to: 'flags#show'
+  get '/flag/:id', to: 'flags#show', as: 'flag'
 
   #invitation routes
   post '/invite/:id', to: 'invitations#create', as: 'invite'
