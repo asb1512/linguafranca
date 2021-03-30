@@ -20,7 +20,7 @@
          <ul class="list-group">
             <li class="list-group-item bg-primary text-light">Nations</li>
             <% @nations.each do |n| %>
-            <li class="list-group-item"><%= link_to n.nationality.capitalize, flag_path(n.id) %></li>
+            <li class="list-group-item"><%= link_to n.name, flag_path(n.id) %></li>
             <% end %>
          </ul>
       </div>
