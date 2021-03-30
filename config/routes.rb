@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   post '/signin', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  #flag routes
+  get '/flag/:id', to: 'flags#show'
+
   #invitation routes
   post '/invite/:id', to: 'invitations#create', as: 'invite'
 
