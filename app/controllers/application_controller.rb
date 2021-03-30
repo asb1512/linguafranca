@@ -17,4 +17,7 @@ class ApplicationController < ActionController::Base
       User.find_by(id: session[:user_id])
    end
 
+   def admin?
+      redirect_to home_path unless current_user.admin == true
+   end
 end
