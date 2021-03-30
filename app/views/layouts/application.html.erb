@@ -26,7 +26,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="<%= current_user ? home_path : root_path %>">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<%= current_user ? home_path : root_path %>">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/about">About</a>
@@ -51,7 +51,8 @@
               <% if current_user.admin == true %>
               <%= link_to 'Dashboard', dashboard_path, class: 'dropdown-item' %>
               <% end %>
-              <%= link_to 'Friends', user_friends_path(current_user.id), class: 'dropdown-item' %>
+              <%= link_to 'Your Profile', user_path(current_user.id), class: 'dropdown-item' %>
+              <%= link_to 'Your Friends', user_friends_path(current_user.id), class: 'dropdown-item' %>
               <%= link_to 'Logout', logout_path, :method => :delete, class: 'dropdown-item' %>
             </div>
           </div>
@@ -71,5 +72,4 @@
     <%= yield %>
 
   </body>
-
 </html>
