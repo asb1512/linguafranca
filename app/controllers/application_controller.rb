@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
    end
 
    def admin?
-      redirect_to home_path unless current_user.admin == true
+      render file: "public/422.html", status: 422 unless current_user.admin == true
    end
 end
