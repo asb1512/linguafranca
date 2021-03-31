@@ -1,6 +1,6 @@
-<h1><%= @language.name.capitalize %></h1>
-
 <div class="container">
+   <h1><%= @language.name.capitalize %></h1>
+
    <p>Is this language tonal?<br>
       <strong><%= @language.pitched ? "Yes" : "No" %></strong>
    </p>
@@ -15,4 +15,10 @@
    </div>
 
    <%= link_to "Learn more about the #{@language.name.capitalize} language here.", @language.wikipedia_link %>
+
+   <% if current_user.admin %>
+   <div>
+      <%= link_to "Edit Language", edit_language_path(@language.id), class: 'btn btn-primary btn-lg mt-3' %>
+   </div>
+   <% end %>
 </div>
