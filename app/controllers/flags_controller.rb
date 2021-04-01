@@ -8,7 +8,9 @@ class FlagsController < ApplicationController
 
    def create
       if flag = Flag.create(flag_params)
-
+         redirect_to flag_path(flag.id)
+      else
+         render 'new'
       end
    end
 
@@ -19,6 +21,6 @@ class FlagsController < ApplicationController
    private
 
    def flag_params
-      params.require(:flag).permit(:nationality, :wikipedia_link, :name, :approved)
+      params.require(:flag).permit(:nationality, :wikipedia_link, :name, :approved, :flag_pic)
    end
 end
