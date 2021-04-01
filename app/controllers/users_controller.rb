@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
    def new
       @user = User.new
+      @approved_languages = Language.where(approved: true)
    end
 
    def create
