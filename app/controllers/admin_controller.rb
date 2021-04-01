@@ -6,4 +6,8 @@ class AdminController < ApplicationController
       @languages = Language.all
       @nations = Flag.all
    end
+
+   def new_user
+      @user = User.new
+   end
 end
