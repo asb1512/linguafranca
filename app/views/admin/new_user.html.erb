@@ -1,4 +1,4 @@
-<%= form_for @user, :html => {class: 'card'} do |f| %>
+<%= form_for @user, :html => {class: 'card', method: :post, controller: :admin, action: :new_user} do |f| %>
 <div class="card-body">
    <div class="form-group">
       <%= f.label :email %>
@@ -44,7 +44,7 @@
       <p>Please select the user's native language.</p>
       <select name="native_language_id">
          <% Language.all.each do |language| %>
-            <option value="<%= language.id %>"><%= language.name %></option>
+            <option value="<%= language.id %>"><%= language.name.capitalize %></option>
          <% end %>
       </select>
    </div>
@@ -53,7 +53,7 @@
       <p>Please select the language the user is learning.</p>
       <select name="foreign_language_id">
          <% Language.all.each do |language| %>
-            <option value="<%= language.id %>"><%= language.name %></option>
+            <option value="<%= language.id %>"><%= language.name.capitalize %></option>
          <% end %>
       </select>
    </div>
