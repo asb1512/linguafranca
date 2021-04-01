@@ -14,7 +14,11 @@
             <li class="list-group-item bg-primary text-light">Languages</li>
             <li class="list-group-item bg-light"><%= link_to "Add Language", new_language_path, class: 'text-secondary' %></li>
             <% @languages.each do |l| %>
-            <li class="list-group-item"><%= link_to l.name.capitalize, language_path(l.id) %></li>
+               <% if !l.approved %>
+               <li class="list-group-item bg-danger"><%= link_to l.name.capitalize, language_path(l.id), class: 'text-white' %></li>
+               <% else %>
+               <li class="list-group-item"><%= link_to l.name.capitalize, language_path(l.id) %></li>
+               <% end %>
             <% end %>
          </ul>
       </div>
