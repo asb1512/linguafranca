@@ -2,10 +2,17 @@
 
 <p>Nationality: <%= @flag.nationality.capitalize %></p>
 
-<% if current_user.admin == true %>
-   <% if !@flag.approved %>
-   <p>Language pending approval.</p>
+<p>Languages spoken in this country:</p>
+<ul>
+   <% @flag.languages.each do |l| %>
+   <li><%= l.name %></li>
    <% end %>
-<% end %>
+</ul>
 
 <%= link_to "Learn more about #{@flag.name} here.", @flag.wikipedia_link %>
+
+<% if current_user.admin == true %>
+   <% if !@flag.approved %>
+   <p class="text-danger mt-4">Language pending approval.</p>
+   <% end %>
+<% end %>
