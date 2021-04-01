@@ -44,7 +44,7 @@
       <p>Please select your native language.</p>
       <select name="native_language_id">
          <% Language.all.each do |language| %>
-            <option value="<%= language.id %>"><%= language.name %></option>
+            <option value="<%= language.id %>"><%= language.name.capitalize %></option>
          <% end %>
       </select>
    </div>
@@ -53,7 +53,7 @@
       <p>Please select the language you're learning.</p>
       <select name="foreign_language_id">
          <% Language.all.each do |language| %>
-            <option value="<%= language.id %>"><%= language.name %></option>
+            <option value="<%= language.id %>"><%= language.name.capitalize %></option>
          <% end %>
       </select>
    </div>
