@@ -27,7 +27,11 @@
             <li class="list-group-item bg-primary text-light">Nations</li>
             <li class="list-group-item bg-light"><%= link_to "Add Nation", new_flag_path, class: 'text-secondary' %></li>
             <% @nations.each do |n| %>
-            <li class="list-group-item"><%= link_to n.name, flag_path(n.id) %></li>
+               <% if !n.approved %>
+               <li class="list-group-item bg-danger"><%= link_to n.name, flag_path(n.id), class: 'text-white' %></li>
+               <% else %>
+               <li class="list-group-item"><%= link_to n.name, flag_path(n.id) %></li>
+               <% end %>
             <% end %>
          </ul>
       </div>
