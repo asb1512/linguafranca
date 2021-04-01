@@ -44,7 +44,7 @@
       <p>Please select your native language.</p>
       <select name="native_language_id">
             <option value="">Please select</option>
-         <% Language.all.each do |language| %>
+         <% Language.where(approved: true).each do |language| %>
             <option value="<%= language.id %>"><%= language.name.capitalize %></option>
          <% end %>
       </select>
@@ -54,7 +54,7 @@
       <p>Please select the language you're learning.</p>
       <select name="foreign_language_id">
             <option value="">Please select</option>
-         <% Language.all.each do |language| %>
+         <% Language.where(approved: true).each do |language| %>
             <option value="<%= language.id %>"><%= language.name.capitalize %></option>
          <% end %>
       </select>
