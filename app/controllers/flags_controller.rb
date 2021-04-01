@@ -23,7 +23,9 @@ class FlagsController < ApplicationController
    end
 
    def update
-      
+      flag = Flag.find_by(id: params[:id])
+      flag.update(flag_params)
+      redirect_to flag_path(flag.id)
    end
 
    private
