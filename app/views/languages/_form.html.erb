@@ -24,6 +24,11 @@
    </div>
 
    <div class="form-group">
+      <p>Please select the countries where <%= @language.name %> is spoken:</p>
+      <%= collection_check_boxes(:language, :flag_ids, Flag.all, :id, :name) %>
+   </div>
+
+   <div class="form-group">
       <%= f.label :wikipedia_link %>
       <%= f.text_field :wikipedia_link %>
    </div>
