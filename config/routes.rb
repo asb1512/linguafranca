@@ -29,4 +29,5 @@ Rails.application.routes.draw do
 
   #admin routes
   get '/dashboard', to: 'admin#dashboard'
+  get '/new_user', to: 'admin#new_user'
 end
