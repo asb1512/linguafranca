@@ -13,6 +13,20 @@ class AdminController < ApplicationController
 
    def create_user
       if user = User.create(user_params)
+         native_language = LanguageUser.create(
+            language_id: params[:native_language_id],
+            user_id: user.id,
+            foreign_language: false
+         )
+         foreign_language = LanguageUser.create(
+            language_id: params[:foreign_language_id],
+            user_id: user.id,
+            foreign_language: true
+         )
+         redirect_to user_path(user)
+      else
+         render 'new_user'
+      end
    end
 
    private
