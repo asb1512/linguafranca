@@ -9,10 +9,12 @@
       <strong><%= @language.gendered ? "Yes" : "No" %></strong>
    </p>
 
-   <div>
-      <p>Countries where this language is spoken:<p>
-
-   </div>
+   <p>Languages spoken in this country:</p>
+   <ul>
+      <% @language.flags.each do |f| %>
+      <li><%= link_to f.name.capitalize, flag_path(f.id) %></li>
+      <% end %>
+   </ul>
 
    <%= link_to "Learn more about the #{@language.name.capitalize} language here.", @language.wikipedia_link %>
 
