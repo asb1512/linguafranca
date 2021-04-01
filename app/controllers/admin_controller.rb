@@ -12,7 +12,7 @@ class AdminController < ApplicationController
    end
 
    def create_user
-      if user = User.create(user_params)
+      if user = User.create(new_user_params)
          native_language = LanguageUser.create(
             language_id: params[:native_language_id],
             user_id: user.id,
@@ -31,7 +31,7 @@ class AdminController < ApplicationController
 
    private
 
-   def user_params
+   def new_user_params
       params.require(:user).permit(
          :email,
          :password,
