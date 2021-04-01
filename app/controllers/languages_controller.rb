@@ -7,6 +7,11 @@ class LanguagesController < ApplicationController
    end
 
    def create
+      if language = Language.create(language_params)
+         redirect_to language_path(language)
+      else
+         render 'new'
+      end
    end
    
    def show
