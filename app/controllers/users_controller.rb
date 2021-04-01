@@ -65,7 +65,8 @@ class UsersController < ApplicationController
          :skype_username,
          :native_language_id,
          :foreign_language_id,
-         :profile_pic
+         :profile_pic,
+         :admin
       )
    end
 end
