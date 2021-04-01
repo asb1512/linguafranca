@@ -28,6 +28,6 @@ Rails.application.routes.draw do
   post '/invite/:id', to: 'invitations#create', as: 'invite'
 
   #admin routes
-  get '/dashboard', to: 'admin#dashboard'
-  get '/new_user', to: 'admin#new_user'
+  get '/admin/dashboard', to: 'admin#dashboard'
+  get 'admin/new_user', to: 'admin#new_user'
 end
