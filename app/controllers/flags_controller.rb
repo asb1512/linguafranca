@@ -21,6 +21,6 @@ class FlagsController < ApplicationController
    private
 
    def flag_params
-      params.require(:flag).permit(:nationality, :wikipedia_link, :name, :approved, :flag_pic)
+      params.require(:flag).permit(:nationality, :wikipedia_link, :name, :approved, :flag_pic, language_ids: [])
    end
 end
