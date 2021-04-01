@@ -3,7 +3,7 @@
       <div class="col">
          <ul class="list-group">
             <li class="list-group-item bg-primary text-light">Users</li>
-            <li class="list-group-item bg-secondary"><%= link_to "Create New User/Admin",  %></li>
+            <li class="list-group-item bg-light"><%= link_to "Create New User/Admin", admin_new_user_path, class: 'text-secondary' %></li>
             <% @users.each do |u| %>
             <li class="list-group-item"><%= link_to u.username, user_path(u.id) %></li>
             <% end %>
