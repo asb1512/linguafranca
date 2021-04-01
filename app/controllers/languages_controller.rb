@@ -31,6 +31,6 @@ class LanguagesController < ApplicationController
    private
 
    def language_params
-      params.require(:language).permit(:name, :pitched, :gendered, :wikipedia_link)
+      params.require(:language).permit(:name, :pitched, :gendered, :wikipedia_link, flag_ids: [])
    end
 end
