@@ -5,7 +5,7 @@
 <p>Languages spoken in this country:</p>
 <ul>
    <% @flag.languages.each do |l| %>
-   <li><%= l.name %></li>
+   <li><%= link_to l.name.capitalize, language_path(l.id) %></li>
    <% end %>
 </ul>
 
