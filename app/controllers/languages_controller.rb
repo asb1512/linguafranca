@@ -1,6 +1,14 @@
 class LanguagesController < ApplicationController
    before_action :admin?
    skip_before_action :admin?, only: [:show]
+
+   def new
+      @language = Language.new
+   end
+
+   def create
+      
+   end
    
    def show
       @language = Language.find_by(id: params[:id])
