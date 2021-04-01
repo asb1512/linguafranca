@@ -1,18 +1,32 @@
-<h1><%= @flag.name %></h1>
+<div class="container">
+   <h1><%= @flag.name %></h1>
 
-<p>Nationality: <%= @flag.nationality.capitalize %></p>
-
-<p>Languages spoken in this country:</p>
-<ul>
-   <% @flag.languages.each do |l| %>
-   <li><%= link_to l.name.capitalize, language_path(l.id) %></li>
+   <% if @flag.flag_pic.attached? %>
+      <%= image_tag @flag.flag_pic, style: "width: 200px;" %>
+   <% else %>
+      <p><%= @flag.name %> doesn't have a profile pic!</p>
    <% end %>
-</ul>
 
-<%= link_to "Learn more about #{@flag.name} here.", @flag.wikipedia_link %>
+   <p>Nationality: <%= @flag.nationality.capitalize %></p>
 
-<% if current_user.admin == true %>
-   <% if !@flag.approved %>
-   <p class="text-danger mt-4">Language pending approval.</p>
+   <p>Languages spoken in this country:</p>
+   <ul>
+      <% @flag.languages.each do |l| %>
+      <li><%= link_to l.name.capitalize, language_path(l.id) %></li>
+      <% end %>
+   </ul>
+
+   <%= link_to "Learn more about #{@flag.name} here.", @flag.wikipedia_link %>
+
+   <% if current_user.admin == true %>
+      <% if !@flag.approved %>
+      <p class="text-danger mt-4">Language pending approval.</p>
+      <% end %>
    <% end %>
-<% end %>
+
+   <div class="container mt-4">
+   <% if current_user.admin || current_user.id == @user.id %>
+      <%= link_to "Edit Country", edit_flag_path(@flag.id), class: 'btn btn-primary btn-lg align-center' %>
+   <% end %>
+   </div>
+</div>
