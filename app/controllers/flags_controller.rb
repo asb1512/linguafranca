@@ -18,6 +18,14 @@ class FlagsController < ApplicationController
       @flag = Flag.find_by(id: params[:id])
    end
 
+   def edit
+      @flag = Flag.find_by(id: params[:id])
+   end
+
+   def update
+      
+   end
+
    private
 
    def flag_params
