@@ -12,6 +12,7 @@
       <div class="col">
          <ul class="list-group">
             <li class="list-group-item bg-primary text-light">Languages</li>
+            <li class="list-group-item bg-light"><%= link_to "Create New Language", new_language_path, class: 'text-secondary' %></li>
             <% @languages.each do |l| %>
             <li class="list-group-item"><%= link_to l.name.capitalize, language_path(l.id) %></li>
             <% end %>
