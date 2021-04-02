@@ -28,6 +28,16 @@ class LanguagesController < ApplicationController
       redirect_to language_path(language.id)
    end
 
+   def approve
+      if @language = language.find_by(id: params[:id])
+         @language.approved = true
+         @language.save
+         redirect_to language_path(@language.id)
+      else
+         render 'show'
+      end
+   end
+
    private
 
    def language_params
