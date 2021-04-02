@@ -20,13 +20,19 @@
 
    <% if current_user.admin == true %>
       <% if !@flag.approved %>
-      <p class="text-danger mt-4">Language pending approval.</p>
+      <p class="text-danger mt-4">Country pending approval.</p>
       <% end %>
    <% end %>
 
    <div class="container mt-4">
    <% if current_user.admin || current_user.id == @user.id %>
       <%= link_to "Edit Country", edit_flag_path(@flag.id), class: 'btn btn-primary btn-lg align-center' %>
+   <% end %>
+   </div>
+
+   <div class="container mt-1">
+   <% if !@flag.approved %>
+      <%= link_to "Approve #{@flag.name}", flag_approve_path(@flag.id), class: 'btn btn-success' %>
    <% end %>
    </div>
 </div>

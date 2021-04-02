@@ -18,9 +18,21 @@
 
    <%= link_to "Learn more about the #{@language.name.capitalize} language here.", @language.wikipedia_link %>
 
+   <% if current_user.admin == true %>
+      <% if !@language.approved %>
+      <p class="text-danger mt-4">Language pending approval.</p>
+      <% end %>
+   <% end %>
+
    <% if current_user.admin %>
    <div>
       <%= link_to "Edit Language", edit_language_path(@language.id), class: 'btn btn-primary btn-lg mt-3' %>
    </div>
    <% end %>
+
+   <div class="container mt-1">
+   <% if !@language.approved %>
+      <%= link_to "Approve #{@language.name}", flag_approve_path(@language.id), class: 'btn btn-success' %>
+   <% end %>
+   </div>
 </div>
