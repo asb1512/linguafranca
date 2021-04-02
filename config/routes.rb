@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   
   #language routes
   resources :languages
+  get '/languages/:id/approve', to: 'languages#approve', as: 'language_approve'
 
   #session routes
   get '/signin', to: 'sessions#new'
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
 
   #flag routes
   resources :flags
+  get '/flags/:id/approve', to: 'flags#approve', as: 'flag_approve'
 
   #invitation routes
   post '/invite/:id', to: 'invitations#create', as: 'invite'
