@@ -28,6 +28,16 @@ class FlagsController < ApplicationController
       redirect_to flag_path(flag.id)
    end
 
+   def approve
+      if @flag = Flag.find_by(id: params[:id])
+         @flag.approved = true
+         @flag.save
+         redirect_to flag_path(@flag.id)
+      else
+         render 'show'
+      end
+   end
+
    private
 
    def flag_params
