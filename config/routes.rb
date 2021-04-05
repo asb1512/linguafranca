@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   root 'static#welcome'
   get '/about', to: 'static#about'
 
+  #github omniauth
+  get '/auth/:provider/callback', to: 'sessions#github_oauth'
+
   #user routes
-  get '/signup', to: 'users#new'
+  get '/signup', to: 'users#new' 
   get '/user/:id/friends', to: 'users#friends', as: 'user_friends'
   resources :users, only: [:create, :show, :edit, :update, :destroy] do
     resources :invitations
