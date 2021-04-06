@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/about', to: 'static#about'
 
   #github omniauth
-  get '/auth/:provider/callback', to: 'sessions#github_oauth'
+  post '/auth/:provider/callback', to: 'sessions#github_oauth'
 
   #user routes
   get '/signup', to: 'users#new' 
