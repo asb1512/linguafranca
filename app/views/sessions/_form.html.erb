@@ -1,6 +1,6 @@
 <div class="container">
 <%= form_for @user, :html => {:class => 'form-signin text-center'}, url: '/signin', method: 'POST' do |f| %>
-   <%= image_tag("LinguaFrancaLogoBlue.png", class: 'mb-4', width: '72px') %>
+   <%= link_to image_tag("LinguaFrancaLogoBlue.png", class: 'mb-4', width: '72px'), root_path %>
 
    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
    <%= f.label :email, for: 'inputEmail', class: 'sr-only' %>
