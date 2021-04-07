@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-   skip_before_action :verified_user, only: [:new, :create]
+   skip_before_action :verified_user, only: [:new, :create, :github_oauth]
 
    def new
       if current_user
@@ -21,7 +21,8 @@ class SessionsController < ApplicationController
    end
 
    def github_oauth
-      pp request.env['omniauth.auth']
+      @omniauth_data = request.env['omniauth.auth']
+      raise @omniauth_data.inspect
    end
 
    def destroy
