@@ -22,7 +22,10 @@ class SessionsController < ApplicationController
 
    def github_oauth
       @omniauth_data = request.env['omniauth.auth']
-      raise @omniauth_data.inspect
+      raise @omniauth_data.inspects
+      if @user = User.find_by(github_id: @omniauth_data["uid"]).where(github: true)
+         redirect_to user_path(@user.id)
+      end
    end
 
    def destroy
