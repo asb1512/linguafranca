@@ -8,6 +8,8 @@
       <div class="col-sm">
          <% if @user.profile_pic.attached? %>
             <%= image_tag @user.profile_pic, style: "width: 200px;" %>
+         <% elsif @user.github_profile_pic %>
+            <%= image_tag @user.github_profile_pic, style: "width: 200px;" %>
          <% else %>
             <p>You don't have a profile pic!</p>
          <% end %>
