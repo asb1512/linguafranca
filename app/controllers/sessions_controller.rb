@@ -23,7 +23,8 @@ class SessionsController < ApplicationController
    def github_oauth
       @omniauth_data = request.env['omniauth.auth']
       
-      if @user = User.find_by(github_id: @omniauth_data["uid"]).where(github: true)
+      if @user = User.where(github_id: @omniauth_data["uid"], github: true).first
+         session[:user_id] = @user.id
          redirect_to user_path(@user.id)
       else
          user_full_name = @omniauth_data["info"]["name"].split
@@ -37,8 +38,10 @@ class SessionsController < ApplicationController
             age: 0,
             skype_username: "none",
             github: true,
-            github_id: @omniauth_data["uid"]
+            github_id: @omniauth_data["uid"],
+            github_profile_pic: @omniauth_data["info"]["image"]
          )
+         session[:user_id] = @user.id
          redirect_to edit_user_path(@user.id)
       end
    end
