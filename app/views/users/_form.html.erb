@@ -11,6 +11,7 @@
       <% end %>
       </div>
 
+      <% if !@user.id %>
       <div class="form-group">
          <%= f.label :password %>
          <%= f.password_field :password, class: 'form-control' %>
@@ -19,8 +20,8 @@
       <div class="form-group">
          <%= f.label :password_confirmation %>
          <%= f.password_field :password_confirmation, class: 'form-control' %>
-         <small class="form-text text-muted">Leave password fields blank if you wish to keep your current password.</small>
       </div>
+      <% end %>
 
       <div class="form-group">
          <%= f.label :username %>
