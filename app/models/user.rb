@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
    has_many :language_users
    has_many :languages, through: :language_users
 
-   validates :email, :password, :username, :first_name, :last_name, :age, :skype_username, presence: true
+   validates :email, :username, :first_name, :last_name, :age, :skype_username, presence: true
 
    #methods for retrieving a user's language info
    def native_languages
