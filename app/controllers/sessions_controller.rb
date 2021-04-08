@@ -30,13 +30,13 @@ class SessionsController < ApplicationController
          user_full_name = @omniauth_data["info"]["name"].split
          
          @user = User.create(
-            email: "none",
+            email: "input your email",
             password: @omniauth_data["uid"],
             username: @omniauth_data["info"]["nickname"],
             first_name: user_full_name[0],
             last_name: user_full_name[1],
             age: 0,
-            skype_username: "none",
+            skype_username: "input your Skype username",
             github: true,
             github_id: @omniauth_data["uid"],
             github_profile_pic: @omniauth_data["info"]["image"]
