@@ -63,4 +63,5 @@ class User < ActiveRecord::Base
    # def send_invitation(user)
    #    invitations.create(friend_id: user.id)
    # end
+   
 end
