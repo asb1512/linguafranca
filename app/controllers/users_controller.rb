@@ -33,6 +33,7 @@ class UsersController < ApplicationController
    def edit
       if current_user.admin || current_user.id == params[:id].to_i
          @user = User.find_by(id: params[:id])
+         @approved_languages = Language.where(approved: true)
       else
          render file: "public/422.html", status: 404
       end
