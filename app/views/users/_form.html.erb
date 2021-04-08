@@ -11,42 +11,42 @@
 
    <div class="form-group">
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, class: 'form-control' %>
    </div>
 
    <div class="form-group">
       <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
    </div>
 
    <div class="form-group">
       <%= f.label :username %>
-      <%= f.text_field :username %>
+      <%= f.text_field :username, class: 'form-control' %>
    </div>
 
    <div class="form-group">
       <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
+      <%= f.text_field :first_name, class: 'form-control' %>
    </div>
 
    <div class="form-group">
       <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
+      <%= f.text_field :last_name, class: 'form-control' %>
    </div>
 
    <div class="form-group">
       <%= f.label :age %>
-      <%= f.number_field :age %>
+      <%= f.number_field :age, class: 'form-control' %>
    </div>
 
    <div class="form-group">
       <%= f.label :skype_username %>
-      <%= f.text_field :skype_username %>
+      <%= f.text_field :skype_username, class: 'form-control' %>
    </div>
 
    <div class="form-group">
       <p>Please select your native language.</p>
-      <select name="native_language_id">
+      <select name="native_language_id" class="form-control">
             <option value="">Please select</option>
          <% @approved_languages.each do |language| %>
             <option value="<%= language.id %>"><%= language.name.capitalize %></option>
@@ -56,7 +56,7 @@
 
    <div class="form-group">
       <p>Please select the language you're learning.</p>
-      <select name="foreign_language_id">
+      <select name="foreign_language_id" class="form-control">
             <option value="">Please select</option>
          <% @approved_languages.each do |language| %>
             <option value="<%= language.id %>"><%= language.name.capitalize %></option>
@@ -72,11 +72,11 @@
 
    <div class="form-group">
       <%= f.label :profile_pic %>
-      <%= f.file_field :profile_pic %>
+      <%= f.file_field :profile_pic, class: 'form-control' %>
    </div>
 
    <div class="form-group">
-      <%= f.submit "Submit" %>
+      <%= f.submit "Submit", class: 'form-control btn btn-primary' %>
    </div>
 </div>
 <% end %>
