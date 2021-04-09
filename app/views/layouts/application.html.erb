@@ -15,7 +15,7 @@
 
   <body>
   <% if request.path != "/signin" %>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary shadow-lg">
       <a class="navbar-brand" href="/"><%= image_tag("LinguaFrancaLogo.png", width: '40px') %></a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,18 +25,23 @@
       <!--Left side of navbar-->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
+
+          <% if request.url.include?('/home') %>
           <li class="nav-item active">
+          <% else %>
+          <li class="nav-item">
+          <% end %>
             <a class="nav-link" href="<%= current_user ? home_path : root_path %>">Home<span class="sr-only">(current)</span></a>
           </li>
+
+          <% if request.url.include?('/about') %>
+          <li class="nav-item active">
+          <% else %>
           <li class="nav-item">
+          <% end %>
             <a class="nav-link" href="/about">About</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
+
         </ul>
 
         <!--Right side of navbar-->
@@ -73,7 +78,15 @@
     </nav>
   <% end %>
 
-    <%= yield %>
+    <div class="container">
+      <div class="card border-0 shadow my-5">
+        <div class="card-body p-5">
+
+          <%= yield %>
+          
+        </div>
+      </div>
+    </div>
 
   </body>
 </html>
