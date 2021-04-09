@@ -1,3 +1,7 @@
+<% if request.url.include?('/edit') %>
+   <h1 class="text-primary">Edit Your Account Info</h1>
+<% end %>
+
 <div class="container my-5">
    <%= form_for @user, :html => {class: 'card'} do |f| %>
    <div class="card-body">
@@ -80,19 +84,19 @@
 
       <div class="form-group">
          <% if @user.profile_pic.attached? %>
-            <%= image_tag @user.profile_pic %>
+            <%= image_tag @user.profile_pic, style: 'width: 200px;' %>
          <% end %>
       </div>
 
       <% if !@user.github_profile_pic %>
       <div class="form-group">
          <%= f.label :profile_pic %>
-         <%= f.file_field :profile_pic, class: 'form-control' %>
+         <%= f.file_field :profile_pic, class: 'form-control w-50' %>
       </div>
       <% else %>
       <div class="form-group">
          <p>Current GitHub profile pic:</p>
-         <%= image_tag(@user.github_profile_pic, class: 'width: 50px;') %>
+         <%= image_tag(@user.github_profile_pic, style: 'width: 50px;') %>
       </div>
       <% end %>
 
