@@ -3,5 +3,5 @@ class Language < ActiveRecord::Base
    has_many :users, through: :language_users
    has_and_belongs_to_many :flags
    
-   validates :name, :wikipedia_link, presence: true
+   validates :name, :wikipedia_link, presence: true, uniqueness: true
 end
