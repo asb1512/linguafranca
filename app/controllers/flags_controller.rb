@@ -1,6 +1,7 @@
 class FlagsController < ApplicationController
    before_action :admin?
    skip_before_action :admin?, only: [:show]
+   
 
    def new
       @flag = Flag.new
