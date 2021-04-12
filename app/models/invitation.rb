@@ -1,5 +1,6 @@
 class Invitation < ActiveRecord::Base
    belongs_to :user
+   validates :user_id, :friend_id, presence: true
 
    def self.reacted?(id1, id2)
       case1 = !Invitation.where(user_id: id1, friend_id: id2).empty?
