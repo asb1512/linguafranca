@@ -11,7 +11,7 @@
          <% elsif @user.github_profile_pic %>
             <%= image_tag @user.github_profile_pic, style: "width: 200px;" %>
          <% else %>
-            <p>You don't have a profile pic!</p>
+            <p class='font-italic'>Profile pic missing.</p>
          <% end %>
 
          <% if current_user.id != @user.id && !Invitation.reacted?(current_user.id, @user.id) %>
