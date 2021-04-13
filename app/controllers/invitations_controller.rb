@@ -1,7 +1,11 @@
 class InvitationsController < ApplicationController
    
    def new
-      
+      if current_user.admin?
+         @invitation = Invitation.new
+      else
+         redirect_to home_path
+      end
    end
 
    def create
