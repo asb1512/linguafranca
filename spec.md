@@ -17,7 +17,7 @@ Specs:
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
    -  Most models have validations for presence
 - [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
-   -  The User and Invitation models contain scope
+   -  The User and Invitation models contain instance methods that would do the same, however, for the sake of formatting, I decided against using them as scope methods (i.e. /users/:id/friends)
 - [x] Include signup
 - [x] Include login
 - [x] Include logout
