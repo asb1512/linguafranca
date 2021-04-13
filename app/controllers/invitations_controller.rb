@@ -1,4 +1,9 @@
 class InvitationsController < ApplicationController
+   
+   def new
+      
+   end
+
    def create
       invitation = Invitation.create(user_id: current_user.id, friend_id: params[:id])
       if invitation
