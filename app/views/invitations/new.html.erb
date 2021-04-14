@@ -1,4 +1,4 @@
-<%= form_tag do %>
+<%= form_tag user_invitations_path, method: :post do %>
    <p>Please select the user receiving the request:</p>
          <select name="sending_user" class="form-control">
                <option value="">Please select</option>
