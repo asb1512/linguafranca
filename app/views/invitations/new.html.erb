@@ -1,9 +1,12 @@
 <%= form_tag do |f| %>
-   <p>Please select the user sending the request:</p>
+   <p>Please select the user receiving the request:</p>
          <select name="sending_user" class="form-control">
                <option value="">Please select</option>
             <% @users.each do |u| %>
-               <option value="<%= u.id %>"><%= u.name.capitalize %></option>
+               <option value="<%= u.id %>"><%= u.full_name %></option>
             <% end %>
          </select>
-<% end %>
+   <br>
+   <p class="font-weight-bold text-primary">This request will be sent from <%= link_to @sending_user.full_name, user_path(@sending_user.id), class: 'text-info' %>.</p>
+
+   <% end %>
