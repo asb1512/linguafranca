@@ -2,7 +2,7 @@ class InvitationsController < ApplicationController
    
    def new
       if current_user.admin?
-         @invitation = Invitation.new
+         @users = User.all
       else
          redirect_to home_path
       end
