@@ -1,5 +1,5 @@
 <%= form_tag user_invitations_path, method: :post do %>
-   <p>Please select the user receiving the request:</p>
+   <p>Please select the user sending the request:</p>
          <select name="sending_user" class="form-control">
                <option value="">Please select</option>
             <% @users.each do |u| %>
@@ -7,7 +7,7 @@
             <% end %>
          </select>
    <br>
-   <p class="font-weight-bold text-primary">This request will be sent from <%= link_to @sending_user.full_name, user_path(@sending_user.id), class: 'text-info' %>.</p>
+   <p class="font-weight-bold text-primary">This request will be sent to <%= link_to @sending_user.full_name, user_path(@sending_user.id), class: 'text-info' %>.</p>
 
    <%= submit_tag "Send Request", class: 'btn btn-primary btn-block' %>
-   <% end %>
+<% end %>
