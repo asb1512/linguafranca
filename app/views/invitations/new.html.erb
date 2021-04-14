@@ -1,3 +1,9 @@
-<%= form_tag('/') do |f| %>
-   
+<%= form_tag do |f| %>
+   <p>Please select the user sending the request:</p>
+         <select name="sending_user" class="form-control">
+               <option value="">Please select</option>
+            <% @users.each do |u| %>
+               <option value="<%= u.id %>"><%= u.name.capitalize %></option>
+            <% end %>
+         </select>
 <% end %>
