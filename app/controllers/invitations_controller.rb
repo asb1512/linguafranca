@@ -3,6 +3,7 @@ class InvitationsController < ApplicationController
    def new
       if current_user.admin?
          @users = User.all
+         @sending_user = User.find_by(id: params[:user_id])
       else
          redirect_to home_path
       end
