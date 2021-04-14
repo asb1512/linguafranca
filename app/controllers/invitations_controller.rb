@@ -10,12 +10,26 @@ class InvitationsController < ApplicationController
    end
 
    def create
-      invitation = Invitation.create(user_id: current_user.id, friend_id: params[:id])
-      if invitation
-         redirect_to user_path(params[:id])
-      else
-         redirect_to user_path(current_user)
+      if params.keys.include?("id")
+         invitation = Invitation.create(user_id: current_user.id, friend_id: params[:id])
+         if invitation
+            redirect_to user_path(params[:id])
+         else
+            redirect_to user_path(current_user)
+         end
+      elsif params.keys.include?("user_id")
+         invitation = Invitation.create(user_id: current_user.id, friend_id: params[:user_id])
+         if invitation
+            redirect_to user_path(params[:user_id])
+         else
+            redirect_to user_path(current_user)
+         end
       end
+      # if invitation
+      #    redirect_to user_path(params[:id])
+      # else
+      #    redirect_to user_path(current_user)
+      # end
    end
 
    def index
