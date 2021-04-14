@@ -8,6 +8,11 @@ class User < ActiveRecord::Base
 
    validates :email, :username, :first_name, :last_name, :age, :skype_username, presence: true
 
+   def full_name
+      result = self.first_name + " " + self.last_name
+      result
+   end
+
    #methods for retrieving a user's language info
    def native_languages
       results = []
