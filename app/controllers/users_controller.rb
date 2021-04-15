@@ -14,11 +14,14 @@ class UsersController < ApplicationController
             user_id: user.id,
             foreign_language: false
          )
+         native_language.save
          foreign_language = LanguageUser.create(
             language_id: params[:foreign_language_id],
             user_id: user.id,
             foreign_language: true
          )
+         foreign_language.save
+         binding.pry
          redirect_to user_path(user)
        else
          render 'new'
