@@ -8,7 +8,6 @@
    <tbody>
       <% @pending_invitations.each do |i| %>
       <tr>
-         <!--It isn't good to query the db directly from a view, currently looking for a better solution.-->
          <% user = User.find_by(id: i.user_id) %>
          <td><%= user.username %></td>
          <td><%= user.native_languages.first.name.capitalize %></td>
