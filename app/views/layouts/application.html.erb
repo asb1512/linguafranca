@@ -51,8 +51,10 @@
             <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.profile_pic.attached? %>
                 <%= image_tag(current_user.profile_pic, class: 'profile-pic') %>
-              <% else %>
+              <% elsif current_user.github_profile_pic %>
                 <%= image_tag(current_user.github_profile_pic, class: 'profile-pic') %>
+              <% else %>
+                <%= image_tag('profile_avatar_placeholder.png', class: 'profile-pic') %>
               <% end %>
             </a>
 
