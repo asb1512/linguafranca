@@ -10,17 +10,17 @@ class InvitationsController < ApplicationController
    end
 
    def create
-      if params.keys.include?("id")
-         invitation = Invitation.create(user_id: current_user.id, friend_id: params[:id])
-         if invitation
-            redirect_to user_path(params[:id])
-         else
-            redirect_to user_path(current_user)
-         end
-      elsif params.keys.include?("user_id")
+      if params.keys.include?("user_id")
          invitation = Invitation.create(user_id: params[:sending_user], friend_id: params[:user_id])
          if invitation
             redirect_to user_path(params[:user_id])
+         else
+            redirect_to user_path(current_user)
+         end
+      elsif params.keys.include?("id")
+         invitation = Invitation.create(user_id: current_user.id, friend_id: params[:id])
+         if invitation
+            redirect_to user_path(params[:id])
          else
             redirect_to user_path(current_user)
          end
