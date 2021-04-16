@@ -25,7 +25,8 @@ Specs:
    -  Login with GitHub
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
    -  users/invitation
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+- [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+   -  Administrators have access to a /users/:id/invitations/new route to manually create friend requests
 - [ ] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:
