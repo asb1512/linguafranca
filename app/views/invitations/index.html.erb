@@ -10,7 +10,12 @@
       <tr>
          <% user = User.find_by(id: i.user_id) %>
          <td><%= user.username %></td>
-         <td><%= user.native_languages.first.name.capitalize %></td>
+         <td>
+            <% if !user.native_languages.empty? %>
+               <%= user.native_languages.first.name.capitalize %></td>
+            <% else %>
+               <span class='font-italic'>None</span>
+            <% end %>
          <td>
             <%= link_to "Accept", user_invitation_path(current_user.id, i.id), action: :update, method: :patch, class: 'btn btn-success' %>
             <%= link_to "Deny", user_invitation_path(current_user.id, i.id), action: :delete, method: :delete, class: 'btn btn-danger' %>
