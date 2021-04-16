@@ -18,7 +18,7 @@ class InvitationsController < ApplicationController
             redirect_to user_path(current_user)
          end
       elsif params.keys.include?("user_id")
-         invitation = Invitation.create(user_id: current_user.id, friend_id: params[:user_id])
+         invitation = Invitation.create(user_id: params[:sending_user], friend_id: params[:user_id])
          if invitation
             redirect_to user_path(params[:user_id])
          else
@@ -62,7 +62,7 @@ class InvitationsController < ApplicationController
       if invitation
          invitation.destroy
       else
-         redirect_to user_path(current_user.id)
+         redirect_to user_invitations_path(current_user.id)
       end
    end
 end
