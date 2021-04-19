@@ -9,10 +9,12 @@ class AdminController < ApplicationController
 
    def new_user
       @user = User.new
+      @approved_languages = Language.where(approved: true)
    end
 
    def create_user
       if user = User.create(new_user_params)
+         binding.pry
          native_language = LanguageUser.create(
             language_id: params[:native_language_id],
             user_id: user.id,
