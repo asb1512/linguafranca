@@ -1,4 +1,4 @@
-<%= form_for @user, :html => {class: 'card', method: :post, controller: 'admin', action: 'create_user'} do |f| %>
+<%= form_tag('/admin/create_user') do %>
 <div class="card-body">
 
    <% if @user.errors.any? %>
@@ -12,50 +12,50 @@
    <% end %>
 
    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
    </div>
 
    <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
    </div>
 
    <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
+      <%= label_tag :password_confirmation %>
+      <%= password_field_tag :password_confirmation %>
    </div>
 
    <div class="form-group">
-      <%= f.label :username %>
-      <%= f.text_field :username %>
+      <%= label_tag :username %>
+      <%= text_field_tag :username %>
    </div>
 
    <div class="form-group">
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
+      <%= label_tag :first_name %>
+      <%= text_field_tag :first_name %>
    </div>
 
    <div class="form-group">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
+      <%= label_tag :last_name %>
+      <%= text_field_tag :last_name %>
    </div>
 
    <div class="form-group">
-      <%= f.label :age %>
-      <%= f.number_field :age %>
+      <%= label_tag :age %>
+      <%= number_field_tag :age %>
    </div>
 
    <div class="form-group">
-      <%= f.label :skype_username %>
-      <%= f.text_field :skype_username %>
+      <%= label_tag :skype_username %>
+      <%= text_field_tag :skype_username %>
    </div>
 
    <div class="form-group">
       <p>Please select the user's native language.</p>
       <select name="native_language_id">
             <option value="">Please select</option>
-         <% Language.all.each do |language| %>
+         <% @approved_languages.each do |language| %>
             <option value="<%= language.id %>"><%= language.name.capitalize %></option>
          <% end %>
       </select>
@@ -65,7 +65,7 @@
       <p>Please select the language the user is learning.</p>
       <select name="foreign_language_id">
             <option value="">Please select</option>
-         <% Language.all.each do |language| %>
+         <% @approved_languages.each do |language| %>
             <option value="<%= language.id %>"><%= language.name.capitalize %></option>
          <% end %>
       </select>
@@ -78,8 +78,8 @@
    </div>
 
    <div class="form-group">
-      <%= f.label :profile_pic %>
-      <%= f.file_field :profile_pic %>
+      <%= label_tag :profile_pic %>
+      <%= file_field_tag :profile_pic %>
    </div>
 
    <div class="form-group">
@@ -92,7 +92,7 @@
    </div>
 
    <div class="form-group">
-      <%= f.submit "Submit" %>
+      <%= submit_tag "Submit" %>
    </div>
 </div>
 <% end %>
