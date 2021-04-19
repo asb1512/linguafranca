@@ -7,7 +7,7 @@ class UsersController < ApplicationController
    end
 
    def create
-      if (user = User.create(user_params))
+      if user = User.create(user_params)
          session[:user_id] = user.id
          native_language = LanguageUser.create(
             language_id: params[:native_language_id],
