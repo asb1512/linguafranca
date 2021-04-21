@@ -19,10 +19,6 @@ To run this project, you need to have Ruby on Rails 6 or greater to run this pro
 Enter `rails server` in the command to launch the local server and visit `localhost:3000/`.
 
 ## Sources
-* [corneal gem](https://github.com/thebrianemory/corneal) for Sinatra app scaffolding
-* Kevin Powell's YouTube tutorial [Create a responsive navigation with no JS!](https://www.youtube.com/watch?v=8QKOaTYvYUA)
-* [W3 School](https://www.w3schools.com/)
-* [Stack Overflow](https://stackoverflow.com/)
 * https://hackernoon.com/how-to-create-a-friendship-relation-on-rails-c01d3u4v
 * https://guides.rubyonrails.org/active_storage_overview.html
 * https://www.youtube.com/watch?v=V4qIyADwhyA
