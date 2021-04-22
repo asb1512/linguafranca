@@ -13,7 +13,9 @@ class AdminController < ApplicationController
    end
 
    def create_user
-      if user = User.create(new_user_params)
+      user = User.new(new_user_params)
+      
+      if user.save
          binding.pry
          native_language = LanguageUser.create(
             language_id: params[:native_language_id],
@@ -27,7 +29,8 @@ class AdminController < ApplicationController
          )
          redirect_to user_path(user)
       else
-         render 'new_user'
+         binding.pry
+         render :new_user
       end
    end
 
