@@ -57,6 +57,17 @@ class UsersController < ApplicationController
       redirect_to user_path(user)
    end
 
+   def destroy
+      user = User.find_by(id: params[:id])
+      if current_user.admin
+         user.destroy
+         redirect_to admin_dashboard_path
+      else
+         user.destroy
+         redirect_to root_path
+      end
+   end
+
    def home
       @matching_users = User.matching_users(current_user)
    end
