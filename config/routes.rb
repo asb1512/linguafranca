@@ -35,5 +35,5 @@ Rails.application.routes.draw do
   #admin routes
   get '/admin/dashboard', to: 'admin#dashboard'
   get '/admin/new_user', to: 'admin#new_user'
-  post '/admin/new_user', to: 'admin#create_user'
+  post '/admin/create_user', to: 'admin#create_user'
 end
