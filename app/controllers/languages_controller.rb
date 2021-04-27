@@ -28,6 +28,17 @@ class LanguagesController < ApplicationController
       redirect_to language_path(language.id)
    end
 
+   def destroy
+      language = Language.find_by(id: params[:id])
+      if current_user.admin
+         language.destroy
+         redirect_to admin_dashboard_path
+      else
+         language.destroy
+         redirect_to root_path
+      end
+   end
+
    def approve
       if @language = language.find_by(id: params[:id])
          @language.approved = true
