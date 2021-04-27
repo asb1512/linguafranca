@@ -7,9 +7,11 @@ class FlagsController < ApplicationController
    end
 
    def create
-      if flag = Flag.create(flag_params)
+      flag = Flag.new(flag_params)
+      if flag.save
          redirect_to flag_path(flag.id)
       else
+         @flag = Flag.new
          render 'new'
       end
    end
