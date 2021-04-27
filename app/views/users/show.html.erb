@@ -46,7 +46,7 @@
          
          <% if current_user.admin || current_user.id == @user.id %>
          <%= link_to "Edit Profile", edit_user_path(@user.id), class: 'btn btn-primary btn-lg align-center' %>
-         <%= link_to "Delete Profile", user_path(@user.id), method: :delete, confirm: "Are you sure?", class: 'btn btn-danger btn-lg' %>
+         <%= link_to "Delete Profile", user_path(@user.id), method: :delete, class: 'btn btn-danger btn-lg' %>
          <% end %>
       </div>
    </div>
