@@ -25,8 +25,9 @@
    <% end %>
 
    <div class="container mt-4">
-   <% if current_user.admin || current_user.id == @user.id %>
+   <% if current_user.admin %>
       <%= link_to "Edit Country", edit_flag_path(@flag.id), class: 'btn btn-primary btn-lg align-center' %>
+      <%= link_to "Delete Country", flag_path(@flag.id), method: :delete, class: 'btn btn-danger btn-lg' %>
    <% end %>
    </div>
 
