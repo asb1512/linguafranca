@@ -1,7 +1,6 @@
 class FlagsController < ApplicationController
    before_action :admin?
    skip_before_action :admin?, only: [:show]
-   
 
    def new
       @flag = Flag.new
@@ -27,6 +26,17 @@ class FlagsController < ApplicationController
       flag = Flag.find_by(id: params[:id])
       flag.update(flag_params)
       redirect_to flag_path(flag.id)
+   end
+
+   def destroy
+      flag = Flag.find_by(id: params[:id])
+      if current_user.admin
+         flag.destroy
+         redirect_to admin_dashboard_path
+      else
+         flag.destroy
+         redirect_to root_path
+      end
    end
 
    def approve
