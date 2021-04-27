@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
          redirect_to user_path(@user)
       else
          @signin_failure = "Your email and/or password did not match our records."
+         @user = User.new
          render 'new'
       end
    end
