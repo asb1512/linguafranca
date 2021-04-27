@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
    has_many :pending_invitations, -> { where confirmed: false }, class_name: 'Invitation', foreign_key: "friend_id"
    has_many :language_users
    has_many :languages, through: :language_users
+   # has_many :native_languages through: :language_users source: 'example_source'
+   # search rails guides options for associations
 
    validates :email, :username, :first_name, :last_name, :age, :skype_username, presence: true
 
