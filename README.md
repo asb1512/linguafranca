@@ -14,7 +14,7 @@ This project is part of Flatiron School's full-stack curriculum. Its aim is to t
 * Bootstrap 4
 
 ## Setup
-To run this project, you need to have Ruby on Rails 6 or greater to run this project. Then, fork and clone this repository and run `bundle install` in the command line.
+To run this project, you need to have Ruby on Rails 6 or greater. Then, fork and clone this repository and run `bundle install` in the command line.
 
 Enter `rails server` in the command to launch the local server and visit `localhost:3000/`.
 
