@@ -27,10 +27,10 @@ Specs:
    -  users/invitation
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
    -  Administrators have access to a /users/:id/invitations/new route to manually create friend requests
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [x] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
+- [x] The application is pretty DRY
+- [x] Limited logic in controllers
+- [x] Views use helper methods if appropriate
 - [x] Views use partials if appropriate
